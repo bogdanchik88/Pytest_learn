@@ -1,0 +1,40 @@
+# virtual environment
+.venv/
+venv/
+env/
+
+# python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# pytest
+.pytest_cache/
+
+# mypy / type checkers
+.mypy_cache/
+.pyre/
+.ruff_cache/
+
+# build artifacts
+build/
+dist/
+*.egg-info/
+
+# coverage
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# environment variables
+.env
+
+# Jupyter
+.ipynb_checkpoints/
