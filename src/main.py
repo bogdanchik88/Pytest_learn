@@ -41,5 +41,5 @@ def append(a: int | float, b: int | float, div_integer: bool = False):
         'operation': 'append',
         'first_number': a,
         'second_number': b,
-        'result': a + b
+        'result': a / b
     }
