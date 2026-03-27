@@ -1,31 +1,35 @@
 import pytest
-from fastapi.testclient import TestClient
-from src.main import app
-
-client = TestClient(app)
 
 def test_func():
     assert 2 == 2
 
-def test_append():
-    responce = client.get('/api/append?a=6&b=5')
+@pytest.mark.parametrize(
+        'a, b, res',
+        [
+            (1, 2, 3),
+            (4, 5, 9),
+            (0, 0, 0),
+        ]
+)
+def test_append(a, b, res, client):
+    responce = client.get(f'/api/append?a={a}&b={b}')
 
     assert responce.status_code == 200
-    assert responce.json()['result'] == 11
+    assert responce.json()['result'] == res
 
-def test_substract():
+def test_substract(client):
     responce = client.get('/api/substract?a=8&b=3')
 
     assert responce.status_code == 200
     assert responce.json()['result'] == 5
 
-def test_multiply():
+def test_multiply(client):
     responce = client.get('api/multiply?a=4&b=3')
 
     assert responce.status_code == 200
     assert responce.json()['result'] == 12
 
-def test_divide():
+def test_divide(client):
     responce = client.get('api/divide?a=10&b=4')
 
     assert responce.status_code == 200
